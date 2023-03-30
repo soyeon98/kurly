@@ -1,0 +1,1614 @@
+@import url('./fonts.css');
+@import url('./reset.css');
+@import url('./skip.css');
+
+// 중첩코딩
+#wrap {
+    width: 100%;
+    overflow: hidden;
+    #header {
+        width: 100%;
+        height: 86px;
+        background: #93e4cf;
+        position: fixed;
+        top:0;
+        left:0;
+        z-index: 3;
+      
+        &.on{
+            animation: header-paral 0.6s ease-in-out both;
+        }
+        &.off{
+            animation: header-Paral-off 0.6s ease-in-out both;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1170px;
+            height: 100%;
+            margin: 0 auto;
+            .gap {
+                width: 100%;
+                padding: 0 15px;
+                height: 100%;
+                display: flex;
+                .left {
+                    width: 38%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;    
+                    ul {
+                        display: flex;
+                        margin: 0 30px 0 0;
+                        li {
+                            margin: 0 0 0 30px;
+                            a {
+                                color:#626262;
+                                font-size: 13px;
+                                font-weight: 600;
+                                &:focus {
+                                    color:#d32b55;
+                                }
+                                &:hover {
+                                    color:#d32b55;
+                                }
+                                &.on {
+                                    color:#d32b55;
+                                }
+                            }
+                        }
+                    }
+                }
+                .center {
+                    width: 24%;
+                    height: 100%;
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        overflow: hidden;
+                        background: url(../img/logo-pink2.png) no-repeat 50% 50%;
+                        background-size: cover;
+                    }
+                }
+                .right {
+                    width: 38%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    ul {
+                        display: flex;
+                        margin: 0 0 0 30px;
+                        li {
+                            margin: 0 30px 0 0;
+                            a {
+                                color:#626262;
+                                font-size: 13px;
+                                font-weight: 600;
+                                &:focus {
+                                    color:#d32b55;
+                                }
+                                &:hover {
+                                    color:#d32b55;
+                                }
+                                &.on {
+                                    color:#d32b55;
+                                }
+                            }
+                        }
+                    }
+                }
+                #mobile{
+                    display: none;
+                    width: 24px;
+                    height: 16px;
+                    margin: auto 0 auto auto ;
+                    a{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        i{
+                            position: absolute;
+                            left: 0;
+                            width: 100%;
+                            height: 2px;
+                            background: #000;
+                            &.line1 {
+                                top: 0;
+                                transition: all 0.3s;
+                                &.on{
+                                    top: 50%;
+                                    margin: -1px 0 0 0;
+                                    transform: rotate(135deg);
+                                }
+                            }
+                            &.line2 {
+                                top: 50%;
+                                margin: -1px 0 0 0;
+                                &.on{
+                                    display: none;
+                                }
+                            }
+                            &.line3 {
+                                bottom: 0;
+                                transition: all 0.3s;
+                                &.on{
+                                    bottom: 50%;
+                                    margin: 0 0 -1px 0;
+                                    transform: rotate(-135deg);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes header-paral {
+        0% {top:0}
+        100% {top:-86px}
+    }
+    @keyframes header-Paral-off {
+        0% {top:-86px}
+        100% {top:0}
+    }
+
+    #main {
+        z-index: 2;
+        position: relative;
+        width: 100%;
+        #section1 {
+            width: 100%;
+            .container {
+                width: 100%;
+                position: relative;
+                .slide-container {
+                    position: relative;
+                    z-index: 1;
+                    width: 100%;
+                    .slide-view {
+                        width: 100%;
+                        position: relative;
+                        z-index: 1;
+                        overflow: hidden;
+                        .slide-wrap {
+                            pointer-events: none; //드래그 앤 드롭 시 슬라이드에 포인트이벤트를 사용 안하게 한다.
+                            width: 100%;
+                            height: 100vh; //페이드인 아웃에서 필수 자식요소가 absolute이므로
+                            display: flex;
+                            position: relative;
+                            .slide {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100vh;
+                                background: url() no-repeat 50% 50%;
+                                background-size: cover;
+                                &.slide1 {
+                                    background-image: url(../img/wedding-img1.jpg);
+                                z-index: 3;}
+                                &.slide2 {
+                                    background-image: url(../img/wedding-img2.jpg);
+                                z-index: 2;}
+                                &.slide3 {
+                                    background-image: url(../img/wedding-img3.jpg);
+                                z-index: 1;}
+
+                                // 슬라이드 이미지 검정 투명 캡
+                                &::after {
+                                    content:'';
+                                    position: absolute;
+                                    top:0;
+                                    left:0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: rgba(0,0,0, 0.15);
+                                }
+                            }
+                        }
+                    }
+                    // 좌우화살버튼
+
+
+                }
+
+                .title {       
+                    user-select: none;             
+                    position: absolute;
+                    z-index: 2;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    div{
+                        width: 100%;
+                        max-width: 307px;
+                        transition: all 0.3s;
+                        img {width: 100%}
+                        hr {
+                            width: 100%;
+                            height: 4px;
+                            border: 0;                            
+                            border-top: 1px solid #85d4c0;
+                            border-bottom: 1px solid #85d4c0;
+                            margin: 50px 0;
+                        }
+                        h2 {
+                            font-size:18px;
+                            color: #fff;
+                            font-weight: 600;
+                            padding: 0 0 8px 0;
+                        }
+                        h3 {
+                            font-size:24px;
+                            color: #85d4c0;
+                            font-weight: 700;
+                        }
+                    }
+                }
+                //좌우화살버튼
+                .arrow-next-btn{
+                    position: absolute;
+                    z-index: 3;
+                    top: 50%;
+                    right: 6%;
+                    width: 100px;
+                    height: 100px;
+                    margin: -50px 0 0 0 ;
+                    i{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        border-top: 1px solid #fff;
+                        border-right: 1px solid #fff;
+                        transform: rotate(45deg);
+                    }
+                }
+                .arrow-prev-btn{
+                    position: absolute;
+                    z-index: 3;
+                    top: 50%;
+                    left: 6%;
+                    width: 100px;
+                    height: 100px;
+                    margin: -50px 0 0 0 ;
+                    i{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        border-top: 1px solid #fff;
+                        border-left: 1px solid #fff;
+                        transform: rotate(-45deg);
+                    }
+                }
+                //페이지버튼 박스
+                .page-btn-box{
+                    position: absolute;
+                    z-index: 2;
+                    bottom: 50px;
+                    left: 0;
+                    width: 100%;
+                    text-align: center;
+                    span{
+                        margin: 0 10px;
+                        a{                   
+                            width: 15px;
+                            height: 15px;
+                            border: 2px solid rgba(255,255,255,0.5);
+                            border-radius:50% ;
+                            transition: all 0.3s;
+                            &.on{
+                                border: 3px solid rgba(255,255,255,1);
+                                transform: scale(1.3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        @keyframes slide { 
+              0.00% { left: -100% * 0 }
+              6.67% { left: -100% * 0 }
+             13.33% { left: -100% * 0 }
+             20.00% { left: -100% * 0 }
+             26.67% { left: -100% * 0 }
+             33.33% { left: -100% * 1 }
+             40.00% { left: -100% * 1 }
+             46.67% { left: -100% * 1 }
+             53.33% { left: -100% * 1 }
+             60.00% { left: -100% * 1 }
+             66.67% { left: -100% * 2 }
+             73.33% { left: -100% * 2 }
+             80.00% { left: -100% * 2 }
+             86.67% { left: -100% * 2 }
+             93.33% { left: -100% * 2 }
+            100.00% { left: -100% * 3 } /* 리턴 */
+        }
+
+        #section2 {
+            width:100%;
+            padding: 6.831%  0;
+            background: #fff;    
+            overflow: hidden;        
+            .container {
+                width:100%;
+                max-width:1170px;
+                margin: 0 auto;
+                .gap {
+                    width:100%;
+                    .title {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0 0 7.89%  0;
+                        h2 {
+                            display: inline-block;
+                            font-size: 24px;
+                            color: #e15276; 
+                            position: relative;
+                            font-weight: 700;
+                            &::before{
+                                content:'';
+                                position: absolute;
+                                left: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                            &::after{
+                                content:'';
+                                position: absolute;
+                                right: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                        }
+                    }
+                    .content {
+                        width: 100%;
+                        display: flex;
+                        .left  {
+                            width: 50%;
+                            height: 350px;                         
+                            .content-box {
+                                width:100%;
+                                > ul {
+                                    width:100%;
+                                    display: flex;
+                                    > li {
+                                        width:50%;
+                                        &.left-image {
+                                            width:100%;
+                                            &.on{
+                                                animation: sec2Left1 1s ease-in-out both;
+                                            }
+                                            > .gap {
+                                                padding: 0 15px;
+                                                .img-box {
+                                                    width:100%;
+                                                    figure {
+                                                        width: 262.5px;
+                                                        height: 298.594px;
+                                                        position: relative;
+                                                        //앞면배경이미지 회전 수직회전 rotateY(0deg) => rotateY(180deg)  
+                                                        img {
+                                                            position: relative;
+                                                            z-index: 2;
+                                                            width:100%;
+                                                            outline: 4px solid rgba(255,255,255, 0.3);
+                                                            outline-offset: -15px;
+                                                            //회전 수직회전
+                                                            transform: perspective(262.5px * 2)  rotateY(0deg);
+                                                            //뒷면 안 보이게 하기
+                                                            backface-visibility: hidden;
+                                                            transition: all 0.6s ease-in-out;
+                                                        }
+                                                        //뒷면배경이미지 회전 수직회전 rotateY(0deg) => rotateY(-180deg)
+                                                        span{
+                                                            position: absolute;
+                                                            z-index: 1;
+                                                            left: 0;
+                                                            top: 0;
+                                                            display: block;
+                                                            width: 262.5px;
+                                                            height: 298.594px;
+                                                            background: url(../img/wedding-img14.jpg) no-repeat 55% 0;
+                                                            background-size: cover;       
+                                                            outline: 4px solid rgba(255,255,255, 0.3);
+                                                            outline-offset: -15px;                                                            
+                                                            //회전 수직회전
+                                                            transform: perspective(262.5px * 2) rotateY(180deg);
+                                                            //뒷면 안 보이게 하기
+                                                            backface-visibility: hidden;
+                                                            transition: all 0.6s ease-in-out;
+                                                         }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &.left-text  {
+                                            width:100%;
+                                            &.on{
+                                                animation: sec2Left2 1.3s ease-in-out both;
+                                            }
+                                            .gap {
+                                                padding: 0 15px;
+                                                .text-box {
+                                                    width:100%;
+                                                    ul {
+                                                        width:100%;
+                                                        li {
+                                                            text-align: left;
+                                                            width:80%;
+                                                            h2 {
+                                                                padding:0 0 10px 0;
+                                                                i {
+                                                                    font-size: 40px;
+                                                                    color:#85d4c0;
+                                                                }
+                                                            }
+                                                            h3 {
+                                                                font-size: 18px;font-weight: 700; color:#85d4c0;
+                                                                line-height: 130%;letter-spacing: -0.3px;
+                                                            }
+                                                            h4 {
+                                                                font-size: 13px;font-weight: 600;
+                                                                padding: 20px 0;
+                                                            }
+                                                            p {
+                                                                font-size: 13px;font-family: 'Roboto';
+                                                                line-height: 170%;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .icon-box {
+                                user-select: none;
+                                display: flex;
+                                width:100%;
+                                padding: 30px 0 0 0;
+                                text-align: center;
+                                &.on{
+                                    animation: sec2Left1 1s ease-in-out both;
+                                }
+                                
+                                .left  {
+                                    width:50%;   
+                                    a {
+                                        margin: 0 10px;
+                                        color:#333;                                    
+                                        i {
+                                            font-size: 14px;
+                                        }
+                                    }                             
+                                } 
+                                .right {
+                                    width:50%;
+                                } 
+                            }
+                        }
+                        .right {
+                            width: 50%;
+                            height: 350px;                           
+                            .content-box {
+                                width:100%;
+                                > ul {
+                                    width:100%;
+                                    display: flex;
+                                    > li {
+                                        width:50%;
+                                        &.left-image {
+                                            width:100%;
+                                            &.on{
+                                                animation: sec2Right1 1.6s ease-in-out both;
+                                            }   
+                                            > .gap {
+                                                padding: 0 15px;
+                                                .img-box {
+                                                    width:100%;                                                
+                                                    figure {
+                                                        width: 262.5px;
+                                                        height: 298.594px;
+                                                        position: relative;
+                                                        img {
+                                                            position: relative;
+                                                            z-index: 2;
+                                                            width:100%;
+                                                            outline: 4px solid rgba(255,255,255, 0.3);
+                                                            outline-offset: -15px;
+                                                            //회전 수직회전
+                                                            transform: perspective(262.5px * 2)  rotateY(0deg);
+                                                            //뒷면 안 보이게 하기
+                                                            backface-visibility: hidden;
+                                                            transition: all 0.6s ease-in-out;
+                                                        }
+                                                        span{
+                                                            position: absolute;
+                                                            z-index: 1;
+                                                            left: 0;
+                                                            top: 0;
+                                                            display: block;
+                                                            width: 262.5px;
+                                                            height: 298.594px;
+                                                            background: url(../img/wedding-img9.jpg) no-repeat 55% 0;
+                                                            background-size: cover;       
+                                                            outline: 4px solid rgba(255,255,255, 0.3);
+                                                            outline-offset: -15px;                                                            
+                                                            //회전 수직회전
+                                                            transform: perspective(262.5px * 2) rotateY(180deg);
+                                                            //뒷면 안 보이게 하기
+                                                            backface-visibility: hidden;
+                                                            transition: all 0.6s ease-in-out;
+                                                         }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &.left-text  {
+                                            width:100%;
+                                            &.on{
+                                                animation: sec2Right2 1.9s ease-in-out both;
+                                            }                                            
+                                            .gap {
+                                                padding: 0 15px;
+                                                .text-box {
+                                                    width:100%;
+                                                    ul {
+                                                        width:100%;
+                                                        li {
+                                                            text-align: left;
+                                                            width:80%;
+                                                            h2 {
+                                                                padding:0 0 10px 0;
+                                                                i {
+                                                                    font-size: 40px;
+                                                                    color:#85d4c0;
+                                                                }
+                                                            }
+                                                            h3 {
+                                                                font-size: 18px;font-weight: 700; color:#85d4c0;
+                                                                line-height: 130%;letter-spacing: -0.3px;
+                                                            }
+                                                            h4 {
+                                                                font-size: 13px;font-weight: 600;
+                                                                padding: 20px 0;
+                                                            }
+                                                            p {
+                                                                font-size: 13px;font-family: 'Roboto';
+                                                                line-height: 170%;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .icon-box {       
+                                user-select: none;                     
+                                display: flex;
+                                width:100%;
+                                padding: 30px 0 0 0;
+                                text-align: center;
+                                &.on{
+                                    animation: sec2Right1 1.6s ease-in-out both;
+                                }    
+                                .left  {
+                                    width:50%;   
+                                    a {
+                                        margin: 0 10px;
+                                        color:#333;                                    
+                                        i {
+                                            font-size: 14px;
+                                        }
+                                    }                             
+                                } 
+                                .right {
+                                    width:50%;
+                                } 
+                            }
+                        }
+                    }
+                }
+            }            
+        }
+        //왼쪽 박스회전
+        #section2 .container .gap .content .left:hover .content-box > ul > li.left-image > .gap .img-box figure img {
+            transform: perspective(262.5px * 2) rotateY(-180deg);
+        }
+        #section2 .container .gap .content .left:hover .content-box > ul > li.left-image > .gap .img-box figure span {
+            transform: perspective(262.5px * 2) rotateY(0deg);
+        }
+        //오른쪽 박스회전
+        #section2 .container .gap .content .right:hover .content-box > ul > li.left-image > .gap .img-box figure img {
+            transform: perspective(262.5px * 2) rotateY(-180deg);
+        }
+        #section2 .container .gap .content .right:hover .content-box > ul > li.left-image > .gap .img-box figure span {
+            transform: perspective(262.5px * 2) rotateY(0deg);
+        }
+
+        @keyframes sec2Left1 {
+              0% {transform: translateY(1000px); opacity: 0;}
+            100% {transform: translateY(  0px);  opacity: 1;}
+        }
+        @keyframes sec2Left2 {
+              0% {transform: translateY(1000px); opacity: 0;}
+            100% {transform: translateY(  0px);  opacity: 1;}
+        }
+        @keyframes sec2Right1 {
+              0% {transform: translateY(1000px); opacity: 0;}
+            100% {transform: translateY(  0px);  opacity: 1;}
+        }
+        @keyframes sec2Right2 {
+              0% {transform: translateY(1000px); opacity: 0;}
+            100% {transform: translateY(  0px);  opacity: 1;}
+        }
+
+        #section3 {
+            position: relative;
+            width:100%;
+            height: 346px;
+            background: url(../img/wedding-img2.jpg) no-repeat 50% 50% fixed;
+            background-size: 100% auto;
+            &::after {
+                content:'';
+                z-index: 1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0, 0.5);
+            }
+            .container {
+                position: relative;
+                z-index: 2;
+                width:100%;
+                max-width:1170px;
+                margin: 0 auto;
+                height: 100%;
+                .gap {
+                    width:100%;
+                    height: 100%;
+                    padding: 0 15px;
+                    .title {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;    
+                        align-items: center;
+                        justify-content: center;
+                        h2 {                       
+                            font-size: 24px;
+                            color: #85d4c0;; 
+                            font-weight: 700;
+                        }
+                    }
+                }
+
+            }
+        }
+        #section4 {
+            width:100%;
+            background: #fff;
+            padding: 6.831%  0;
+            border-bottom: 1px solid #ccc;
+            .container {
+                width: 100%;
+                max-width: 1170px;
+                margin:0 auto;
+                > .gap {
+                    width: 100%;
+                    .title {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0 0 7.89%  0;
+                        h2 {
+                            display: inline-block;
+                            font-size: 24px;
+                            color: #e15276; 
+                            position: relative;
+                            font-weight: 700;
+                            &::before{
+                                content:'';
+                                position: absolute;
+                                left: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                            &::after{
+                                content:'';
+                                position: absolute;
+                                right: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                        }
+                    }
+                    .content {
+                        width: 100%;
+                        
+                        ul {
+                            
+                            width: 100%;
+                            display: flex;
+                            li {
+                                width: 33.33333%;
+                                .col-gap {
+                                    width:100%;
+                                    padding: 0 15px;
+                                    text-align: center;
+                                    .box {
+                                        width:100%;
+                                        border: 5px solid #eee;
+                                        .gap {
+                                            width:100%;
+                                            padding: 60px;
+                                            h2 {
+                                                padding: 0 0 15px 0;
+                                                i {
+                                                    font-size: 60px;
+                                                    color: #85d4c0;
+                                                }                                    
+                                            }
+                                            h3 { font-size: 15px;font-weight: 600;}
+                                            hr {border:0;background: #ccc;width:100%;height:1px;margin: 25px 0;}
+                                            p {color: #929292; font-size: 13px;padding: 0 0 10px 0;}
+                                            h4 {color: #929292; font-size: 13px;}
+                                        }
+                                    }
+
+                                               
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #section5 {
+            width: 100%;
+            padding: 6.831%  0;
+            background: #fff;
+            .container {
+                width: 100%;
+                max-width: 1170px;
+                margin: 0 auto;
+                .gap {
+                    width: 100%;
+                    .title {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0 0 7.89%  0;
+                        h2 {
+                            display: inline-block;
+                            font-size: 24px;
+                            color: #e15276; 
+                            position: relative;
+                            font-weight: 700;
+                            &::before{
+                                content:'';
+                                position: absolute;
+                                left: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                            &::after{
+                                content:'';
+                                position: absolute;
+                                right: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                        }
+                    }
+                    .content {
+                        width: 100%;
+                        overflow: hidden;
+                        .gallery-box {
+                            width: 1181px;
+                            margin: 0 0 0 -11px;
+                            ul {
+                                width: 100%;
+                                display: flex;
+                                // flex-flow: row nowrap; //가로배치 줄바꿈없음
+                                flex-flow: row wrap; //가로배치 줄바꿈있음
+                                li {
+                                    width: 25%;  // 모두 합해서 100%되면 줄바꿈
+                                    .col-gap {
+                                        // width: 100%;
+                                        // padding: 0 0 11px 11px;  오버 이미지이 포함되어서 적합하지 않다
+                                          
+                                        width: auto;  //마진 제외하고 나머지 너비를 채운다
+                                        margin: 0 0 11px 11px;
+                                        overflow: hidden;  // 오버되는 이미지가 마진영역에서는 감춘다.
+
+                                        a {
+                                            display: block;
+                                            width: 100%;
+                                            figure {
+                                                width: 100%;
+                                                img {
+                                                    width: 100%;
+                                                    transition: all 0.3s; //시간
+                                                    &:hover {
+                                                        // 변형: 크기(1.1);
+                                                        transform: scale(1.1);
+                                                        opacity: 0.2;
+                                                        cursor: url(../img/icon-zoom.png), auto;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #section6 {
+            width:100%;
+            background: url(../img/wedding-img16.jpg) no-repeat 50% 50%;
+            background-size: cover;
+            padding: 6.831%  0;
+            position: relative;
+            &::before {
+                content:'';
+                z-index: 1;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(37, 37, 37, 0.5);
+              } 
+           .container {
+            z-index: 2;
+            position: relative;
+            width: 100%;
+            max-width: 1170px;
+            margin: 0 auto;
+            .gap {
+                width: 100%;
+                .content {
+                    width: 100%;
+                    > ul {
+                        width: 100%;
+                        display: flex;
+                        > li {
+                            width: 50%;
+                            .col-gap {
+                                width: 100%;
+                                padding: 0 15px;
+                                .content-box {
+                                    width: 100%;
+                                    height: 500px;
+                                    outline: 5px solid rgba(255,255,255, 0.3);
+                                    outline-offset: -20px;
+                                    &.left {
+                                        background: url(../img/wedding-img17.jpg) no-repeat 50% 50%;
+                                        background-size: cover;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        h2 {
+                                            width: 60%;
+                                            font-size: 28px;
+                                            color: #fff;
+                                            line-height: 150%;
+                                            text-align: center;
+                                            font-family: 'Montserrat';
+                                            font-weight: 600;
+                                            letter-spacing: 0.3px;
+                                        }
+                                    }                                    
+                                    &.right {
+                                        background: #93e4cf;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        .content-wrap {
+                                            width: 75%;                                           
+                                            .content-head {
+                                                font-size: 24px;
+                                                font-weight: 600;
+                                                color: #626262;
+                                                text-align: center;                                                
+                                            }
+                                            // 전송폼
+                                            #messageForm {
+                                                padding: 25px 0 10px 0;
+                                                ul {
+                                                    width:100%;
+                                                    li {
+                                                        width:100%;
+                                                        padding: 5px 0;
+                                                        &:nth-child(3) {
+                                                            display: flex;
+                                                            justify-content: space-between;
+                                                        }
+                                                        &:last-child {
+                                                            text-align: center;
+                                                        }
+                                                        input {
+                                                            width: 100%;
+                                                            height: 47px;
+                                                            background: #fff;
+                                                            border: 0;
+                                                            border-radius: 3px;
+                                                            padding: 0 15px;
+                                                            &::placeholder {
+                                                                color: #ccc; 
+                                                            }
+                                                            &:focus {
+                                                                outline: 0;
+                                                            }
+                                                        }
+
+                                                        div {
+                                                            width:47%;
+                                                            select {
+                                                                width: 100%;
+                                                                height: 47px;
+                                                                background: #fff url(../img/select-arrow.png) no-repeat 97% 50%;
+                                                                border: 0;
+                                                                // 원래의 모양 사용안함
+                                                                appearance: none;
+                                                                padding: 0 15px; 
+                                                                color: #999;                                                                                                                              
+                                                                &:focus {
+                                                                    outline: 0;
+                                                                } 
+                                                               
+                                                            }
+                                                        }
+                                                        
+                                                        // 메모장 텍스트에이리어  textarea
+                                                        // 타입속성 사용법
+                                                        // textarea[id='textarea'] {
+                                                        // textarea[name='textarea'] {
+                                                        textarea {
+                                                            width: 100%;
+                                                            height: 70px;
+                                                            background: #fff;
+                                                            border: 0;
+                                                            padding: 15px;
+                                                            font-size: 14px;
+                                                            color: #626262;
+                                                            resize: none;  //크기조절 안함.
+                                                            border-radius: 3px;
+                                                            &:focus {
+                                                                outline: 0;
+                                                            }
+                                                            &::placeholder {
+                                                                color:#ccc;
+                                                            }
+                                                        } 
+
+                                                        button {
+                                                            padding: 0 15px;                                                            
+                                                            height: 50px;
+                                                            background: #000;
+                                                            color: #fff;
+                                                            border: 3px solid #000;
+                                                            border-radius: 3px;
+                                                            cursor: pointer;
+                                                            font-weight: 600;
+                                                            font-size: 13px;
+                                                            text-transform: uppercase;
+                                                            // text-transform: lowercase;
+                                                            // text-transform: capitalize;
+                                                            transition: all 0.3s;
+                                                            &:hover {
+                                                                background: #fff;
+                                                                color: #000;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .content-foot {
+                                                display: none;
+                                                font-size: 13px;
+                                                color: #626262;
+                                                text-align: center;
+                                                padding: 10px 15px;
+                                                border:2px solid #cc3;
+                                                &.foot1 {
+                                                    &.on {
+                                                        display: block;
+                                                    }
+                                                }
+                                                &.foot2 {
+                                                    &.on {
+                                                        display: block;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+           }   
+
+        }
+        #section7 {
+            width:100%;
+            background: #fff;
+            padding: 6.831%  0;
+            .container {
+                width: 100%;
+                max-width: 1170px;
+                margin: 0 auto;
+                .gap {
+                    padding: 0 15px;
+                    .title {
+                        width: 100%;
+                        text-align: center;
+                        h2 {
+                            display: inline-block;
+                            font-size: 24px;
+                            color: #e15276; 
+                            position: relative;
+                            font-weight: 700;
+                            &::before{
+                                content:'';
+                                position: absolute;
+                                left: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                            &::after{
+                                content:'';
+                                position: absolute;
+                                right: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                        }
+                    }
+                    .content {
+                        width:100%;
+                        p {
+                            width: 456px;
+                            margin: 0 auto;
+                            line-height: 180%;
+                            font-size: 13px;
+                            color: #626262;
+                            text-align: center;
+                            font-family: 'Roboto';
+                            padding: 80px 0;
+                        }
+                        span {                            
+                            width: 100%;
+                            max-width: 945px;
+                            margin: 0 auto;
+                            display: flex;                           
+                            // justify-content: space-between;
+                            // justify-content: space-evenly;
+                            justify-content: space-around;
+                            a {
+                                img {
+                                   width: auto;  
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #section8 {
+            width:100%;
+            background: #f7f7f7;
+            padding: 6.831%  0;
+            .container {
+                width: 100%;
+                .gap {
+                    width: 100%;
+                    .title {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0 15px 90px 15px;
+                        h2 {
+                            display: inline-block;
+                            font-size: 24px;
+                            color: #e15276; 
+                            position: relative;
+                            font-weight: 700;
+                            &::before{
+                                content:'';
+                                position: absolute;
+                                left: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                            &::after{
+                                content:'';
+                                position: absolute;
+                                right: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                        }
+                    }
+                    .content {
+                        width: 100%;
+                        .slide-container {
+                            width: 100%;
+                            .slide-view {
+                                width: 100%;
+                                overflow: hidden;
+                                // overflow: visible;
+                                .slide-wrap { // 기차 5칸 : 우측에서 좌측으로 이동하는 애니메이션 구현
+                                    width: calc(100% / 4 * 5);   //125%
+                                    display: flex;
+                                    /* animation: slide-ani 4s  ease  both forwards backwards */;
+                                    /* animation: slide-ani 4s  ease-in  both  forwards backwards */;
+                                    /* animation: slide-ani 4s  ease-out  both  forwards backwards */;
+                                    /* animation: slide-ani 4s  ease-in-out  both  forwards backwards */;
+                                    /* animation: slide-ani 4s  cubic-bezier(0.075, 0.82, 0.165, 1)  both  forwards backwards */;
+                                    /* animation: slide-ani 4s  cubic-bezier(0.23, 1, 0.320, 1)  both  forwards backwards */;
+                                    /* animation: slide-ani 4s  cubic-bezier(0, 0.5, 0.8, 1)  both  forwards backwards */;
+                                    animation: slide-ani 4s  cubic-bezier(1, 0, 0.8, 1)  both /* forwards backwards */;
+                                    .slide {
+                                        width: calc(100% / 4);
+                                        // 사용자 선택 안함
+                                        user-select: none;
+                                        .col-gap {
+                                            width: auto;
+                                            background-color: #d32b55;
+                                            margin: 0 15px;                                            
+                                            .top-box {
+                                                width: 100%;
+                                                // height: 322.172px;
+                                                position: relative;
+                                                overflow: hidden;
+                                                &::after{
+                                                    z-index: 2;
+                                                    content:'';
+                                                    display: block;
+                                                    position: absolute;
+                                                    top:0;
+                                                    left:0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    background: rgba(0,0,0, 0);
+                                                    cursor: pointer;
+                                                    transition: all 0.3s;
+                                                }
+                                                img {
+                                                    width:100%;
+                                                    position: relative;
+                                                    z-index: 1;
+                                                    transition: all 0.3s;
+                                                }
+                                                span {
+                                                    z-index: 3;
+                                                    position: absolute;
+                                                    right: 0;
+                                                    bottom: 0;
+                                                    padding: 15px 25px;
+                                                    background: #fff;
+                                                    em {
+                                                        font-size: 13px;
+                                                        color: #626262;
+                                                        font-weight: 600;
+                                                        text-transform: uppercase;
+                                                    }
+                                                }
+                                            }
+                                            .bottom-box {
+                                                width:100%;
+                                                padding: 6.254%;
+                                                background: #fff;
+                                                display: flex;
+
+                                                h3 {
+                                                    font-size: 35px;
+                                                    font-weight: 700;
+                                                    color: #d32b55;
+                                                    margin: 0 6.254% 0 0;
+                                                }
+                                                div {
+                                                    h4 {
+                                                        font-size: 15px;
+                                                        font-weight: 700;
+                                                        color: #222; 
+                                                        text-transform: uppercase;
+                                                    }
+                                                    p {
+                                                        font-size: 14px;                                                        
+                                                        color: #0e0909; 
+                                                        line-height: 180%;
+                                                        font-family: 'Roboto';
+                                                        padding: 3.171% 0 9.513% 0;
+                                                    }
+                                                    i {
+                                                        display:block;
+                                                        width: 30px;
+                                                        height: 4px;
+                                                        background:#93e4cf;
+                                                    }
+                                                }
+                                            }
+
+                                            &:hover{
+                                                cursor: url(../img/icon-move.png), auto;
+                                                .top-box{
+                                                    &::after{
+                                                        background: rgba(0,0,0, 0.3);
+                                                    }    
+                                                }
+                                                img {
+                                                    transform: scale(1.1);
+                                                 }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }        
+        }
+        // 애니메이션 이름
+        // slide-ani
+        // 3초대기 1초이동 
+        // 100% / 4 = 25% : 1초에 해당하는 백분율
+        // 키프레임
+        // 이동 트랜스폼 : X 이동 우측에서 좌측으로이동  트랜스레이트X( -475.75PX )
+        // 이동 transform : translateX( -475.75PX );
+        @keyframes slide-ani {
+              0% {transform: translateX( -100vw / 4 * 0)}
+             25% {transform: translateX( -100vw / 4 * 0)}
+             50% {transform: translateX( -100vw / 4 * 0)}
+             75% {transform: translateX( -100vw / 4 * 0)}
+            100% {transform: translateX( -100vw / 4 * 1)}
+        }
+
+
+
+
+        #section9 {
+            width:100%;
+            background: #fff;
+            padding: 6.831%  0; 
+            border-bottom: 1px solid #ddd;
+            .container {
+                width: 100%;
+                max-width: 1170px;
+                margin: 0 auto;
+                .gap {
+                    width: 100%;
+                    .title {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0 0 7.89%  0;
+                        h2 {
+                            display: inline-block;
+                            font-size: 24px;
+                            color: #e15276; 
+                            position: relative;
+                            font-weight: 700;
+                            &::before{
+                                content:'';
+                                position: absolute;
+                                left: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                            &::after{
+                                content:'';
+                                position: absolute;
+                                right: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                        }
+                    }
+                    .content {
+                        width: 100%;
+                       > ul {
+                            width: 100%;
+                            display: flex;
+                            // flex-flow: row nowrap;  // 줄안바뀜 li 50% 
+                            flex-flow: row wrap;    // 줄바뀜 li 50%
+                           > li {
+                                width: calc(100% / 3);
+                                .col-gap {
+                                    margin: 0 15px;
+                                    .img-box {
+                                        width:360px;
+                                        height: 247.047px;
+                                        position: relative;
+                                        >img {         
+                                            position: relative;                                 
+                                            z-index: 2;
+                                            width:100%;
+                                            transform: perspective(262.5px * 2) otateY(0deg);
+                                            backface-visibility: hidden;
+                                            transition: all 0.6s ease-in-out;
+                                        }
+                                        span{
+                                            display: block;
+                                            position: absolute;
+                                            z-index: 1;
+                                            left: 0;
+                                            top: 0;
+                                            width: 360px;
+                                            height: 247.047px;
+                                            transform: perspective(262.5px * 2) rotateY(180deg);
+                                            transition: all 0.6s ease-in-out;
+                                            backface-visibility: hidden;
+                                            background: url() no-repeat 50% 50%;
+                                            background-size: cover;
+                                            &.back-face1{background-image: url(../img/wedding-img10.jpg);}
+                                            &.back-face2{background-image: url(../img/wedding-img11.jpg);}
+                                            &.back-face3{background-image: url(../img/wedding-img12.jpg);}
+                                        }
+                                    }
+                                    .txt-box {
+                                        width: 100%;
+                                        padding: 30px 0 0 0;
+                                        ul {
+                                            width: 100%;
+                                            li {
+                                                width: 100%;
+                                                padding: 0 0 15px 0;
+                                                // 1줄
+                                                &:first-child{
+                                                    a {
+                                                       padding: 5px 15px;
+                                                       background: #000; 
+                                                       color: rgba(255,255,255,1);
+                                                       font-size: 10px;
+                                                       font-weight: 600;
+                                                       border-radius: 2px;
+                                                       transition: all 0.3s;
+                                                       &:hover {
+                                                        color: rgba(255,255,255,0.7);
+                                                       }
+                                                    }
+                                                }
+                                                // 2줄
+                                                h3 {
+                                                    a {
+                                                        font-size: 15px;
+                                                        font-weight: 600;
+                                                        line-height: 130%;
+                                                        color: #333;    
+                                                    }
+                                                }
+                                                // 3줄
+                                                p {
+                                                    font-size: 13px;                                                    
+                                                    line-height: 180%;
+                                                    color: #626262;      
+                                                    font-family: 'Roboto';
+                                                }
+                                                // 4줄
+                                                hr {
+                                                    border: 0;
+                                                    width: 100%;
+                                                    height: 1px;
+                                                    background: #ddd;
+                                                    margin: 15px 0 20px 0;
+                                                }
+                                                // 5줄
+                                                &:last-child{
+                                                    color: #999; 
+                                                    font-size: 11px;
+                                                    a {                                                                                                            
+                                                        color: #999;                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #section9 .container .gap .content > ul > li:hover .col-gap .img-box > img {
+            transform: perspective(262.5px * 2) rotateY(-180deg);
+        }
+        #section9 .container .gap .content > ul > li:hover .col-gap .img-box > img span{
+            transform: perspective(262.5px * 2) rotateY(0deg);
+        }
+        #section10 {
+            width:100%;
+            background: #fff;
+            padding: 130px 0 80px 0; 
+            .container {
+                width: 100%;
+                max-width: 1170px;
+                margin: 0 auto;
+                .gap {
+                    margin: 0 15px;
+                    .title {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0 0 7.89%  0;
+                        h2 {
+                            display: inline-block;
+                            font-size: 24px;
+                            color: #e15276; 
+                            position: relative;
+                            font-weight: 700;
+                            &::before{
+                                content:'';
+                                position: absolute;
+                                left: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                            &::after{
+                                content:'';
+                                position: absolute;
+                                right: -60px;
+                                top: 50%;
+                                margin: -0.5px 0 0 0;
+                                width: 40px;
+                                height: 1px;
+                                background: #93e4cf;
+                            }                           
+                        }
+                    }
+                    .content {
+                        width: 100%;
+                        p {
+                            width: 90%;
+                            max-width: 456px;
+                            margin: 0 auto;
+                            font-size: 13px;
+                            color: #626262;
+                            line-height: 170%;
+                            text-align: center;
+                            font-family: 'Roboto';
+                            letter-spacing: 0.3px;
+                        }
+                    }
+                }
+            }
+        }
+        #section11 {
+            width:100%;
+            height: 420px;
+            background: #fff;
+            iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+        }
+
+
+    }
+    #footer {
+        z-index: 1;
+        position: relative;
+        width:100%;
+        background: #fff;
+        .container{
+            width: 100%;
+            max-width: 1170px;
+            margin: 0 auto;
+            .gap {
+                margin: 0 15px;
+                .content {
+                    width: 100%;
+                    text-align: center;
+                    .foot-row1 {
+                        width: 100%;
+                        padding: 50px 0;
+                        border-bottom: 1px solid #ddd;
+                        a {
+                            margin: 0 20px;
+                            i {
+                               font-size: 22px; 
+                               color: #575757;
+                            }
+                        }
+                    }
+                    .foot-row2{
+                        padding: 40px 0;
+                        p {
+                            font-size: 11px; 
+                            color: #626262;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .gotop {
+        z-index: 3;
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,1);
+            color: #fff;            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+                font-size: 24px; 
+                margin: -7px 0 0 0;
+            }
+        }
+    }
+}

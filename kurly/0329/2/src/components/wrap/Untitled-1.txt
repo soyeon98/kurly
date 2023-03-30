@@ -1,0 +1,16 @@
+    React.useEffect(()=>{
+        //헤더영역에 row3의 위에서 row3 offst().top 포지션 스크롤탑값이 도달 시 row2, row3에 클래스를 추가해라
+        const row3Top = $('#header .row3').offset().top;
+        let isFix=true;
+        $(window).scroll(function(){
+            if($(window).scrollTop()>=row3Top){
+                //상태관리 변수
+                isFix=true;
+            }
+            else{
+               //상태관리 변수
+               isFix=false;
+            }
+            setFix(isFix);
+        });
+    },[]);

@@ -1,0 +1,242 @@
+@media all and (max-width: 1181px) {
+  #wrap #main #section5 .container .gap .content .gallery-box {
+    width: 100vw;
+    margin: 0;
+    padding: 0 15px 0 0;
+  }
+  #wrap #main #section5 .container .gap .content .gallery-box ul li .col-gap {
+    margin: 0 0 15px 15px;
+  }
+  #wrap #main #section5 .container .gap .content .gallery-box ul li {
+    width: 33.333%;
+  }
+}
+@media all and (max-width: 1170px) {
+  #wrap #main #section2,
+  #wrap #main #section4,
+  #wrap #main #section5,
+  #wrap #main #section6,
+  #wrap #main #section7,
+  #wrap #main #section8,
+  #wrap #main #section9,
+  #wrap #main #section10 {
+    padding: 80px 0;
+  }
+  #wrap #main #section4 .container > .gap .content ul li .col-gap .box .gap {
+    padding: 5.128205128vw;
+  }
+  #wrap #main #section8 .container .gap .content .slide-container .slide-view .slide-wrap {
+    width: 166.6666666667%;
+  }
+  #wrap #main #section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
+    width: 33.3333333333%;
+  }
+  @keyframes slide-ani {
+    0% {
+      transform: translateX(0vw);
+    }
+    25% {
+      transform: translateX(0vw);
+    }
+    50% {
+      transform: translateX(0vw);
+    }
+    75% {
+      transform: translateX(0vw);
+    }
+    100% {
+      transform: translateX(-33.3333333333vw);
+    }
+  }
+  #wrap #main #section9 .container .gap .content > ul > li {
+    width: 50%;
+  }
+  #wrap #main #section9 .container .gap .content > ul > li .col-gap {
+    margin: 15px;
+  }
+}
+@media all and (max-width: 1112px) {
+  #wrap #main #section2 .container .gap .content .left .content-box > ul > li.left-text .gap .text-box ul li {
+    width: 100%;
+  }
+  #wrap #main #section2 .container .gap .content .right .content-box > ul > li.left-text .gap .text-box ul li {
+    width: 100%;
+  }
+}
+@media all and (max-width: 1058px) {
+  #wrap #main #section2 .container .gap .content {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  #wrap #main #section2 .container .gap .content .left {
+    width: 70%;
+    height: auto;
+  }
+  #wrap #main #section2 .container .gap .content .right {
+    margin: 50px 0 0 0;
+    width: 70%;
+    height: auto;
+  }
+}
+@media all and (max-width: 990px) {
+  #wrap #header .container .gap {
+    justify-content: center;
+  }
+  #wrap #header .container .gap .left,
+  #wrap #header .container .gap .right {
+    display: none;
+  }
+  #wrap #header .container .gap .center {
+    width: 200px;
+    margin: 0 auto 0 0;
+  }
+  #wrap #header .container .gap .center a {
+    background-image: url(../img/logo-pink-mobile.png);
+    background-position: -20px center;
+    background-size: 100% auto;
+  }
+  #wrap #header .container .gap #mobile {
+    display: block;
+  }
+  #wrap #main #section5 .container .gap .content .gallery-box ul li {
+    width: 50%;
+  }
+  #wrap #main #section8 .container .gap .content .slide-container .slide-view .slide-wrap {
+    width: 250%;
+  }
+  #wrap #main #section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
+    width: 100%/2;
+  }
+  @keyframes slide-ani {
+    0% {
+      transform: translateX(0vw);
+    }
+    25% {
+      transform: translateX(0vw);
+    }
+    50% {
+      transform: translateX(0vw);
+    }
+    75% {
+      transform: translateX(0vw);
+    }
+    100% {
+      transform: translateX(-50vw);
+    }
+  }
+}
+@media all and (max-width: 968px) {
+  #wrap #main #section4 .container > .gap .content ul {
+    flex-flow: row wrap;
+  }
+  #wrap #main #section4 .container > .gap .content ul li {
+    width: 50%;
+  }
+  #wrap #main #section4 .container > .gap .content ul li .col-gap {
+    padding: 15px;
+  }
+}
+@media all and (max-width: 900px) {
+  #wrap #main #section6 .container .gap .content > ul {
+    flex-flow: row wrap;
+  }
+  #wrap #main #section6 .container .gap .content > ul > li {
+    width: 100%;
+  }
+  #wrap #main #section6 .container .gap .content > ul > li .col-gap {
+    padding: 15px;
+  }
+}
+@media all and (max-width: 760px) {
+  #wrap #main #section2 .container .gap .content .left {
+    width: 100%;
+  }
+  #wrap #main #section2 .container .gap .content .right {
+    margin: 50px 0 0 0;
+    width: 100%;
+  }
+}
+@media all and (max-width: 700px) {
+  #wrap #main #section5 .container .gap .content .gallery-box ul li {
+    width: 100%;
+  }
+  #wrap #main #section8 .container .gap .content .slide-container .slide-view .slide-wrap {
+    width: 500%;
+  }
+  #wrap #main #section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
+    width: 100%/1;
+  }
+  #wrap #main #section9 .container .gap .content > ul > li {
+    width: 100%;
+  }
+  @keyframes slide-ani {
+    0% {
+      transform: translateX(0vw);
+    }
+    25% {
+      transform: translateX(0vw);
+    }
+    50% {
+      transform: translateX(0vw);
+    }
+    75% {
+      transform: translateX(0vw);
+    }
+    100% {
+      transform: translateX(-100vw);
+    }
+  }
+}
+@media all and (max-width: 600px) {
+  #wrap #main #section7 .container .gap .content span {
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  #wrap #main #section7 .container .gap .content span a {
+    margin: 15px 0;
+  }
+}
+@media all and (max-width: 550px) {
+  #wrap #main #section4 .container > .gap .content ul li {
+    width: 100%;
+  }
+}
+@media all and (max-width: 534px) {
+  #wrap #main #section2 .container .gap .content .left .content-box > ul {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  #wrap #main #section2 .container .gap .content .left .content-box > ul > li {
+    width: 100%;
+    padding: 50px 0;
+  }
+  #wrap #main #section2 .container .gap .content .right .content-box > ul {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  #wrap #main #section2 .container .gap .content .right .content-box > ul > li {
+    width: 100%;
+    padding: 50px 0;
+  }
+}
+@media all and (max-width: 500px) {
+  #wrap #main #section1 .container .title div {
+    transform: scale(0.8);
+  }
+  #wrap #main #section7 .container .gap .content p {
+    width: 90%;
+    padding: 50px 0;
+  }
+  #wrap #footer .container .gap .content .foot-row1 a {
+    margin: 0 10px;
+  }
+}
+@media all and (max-width: 400px) {
+  #wrap #main #section2 .container .gap .content .left .content-box > ul > li {
+    padding: 30px 0;
+  }
+  #wrap #main #section2 .container .gap .content .right .content-box > ul > li {
+    padding: 30px 0;
+  }
+}

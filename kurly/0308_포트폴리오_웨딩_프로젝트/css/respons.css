@@ -1,0 +1,5 @@
+@media all and (max-width: 500px) {
+  #wrap #main #section1 .container .title div {
+    transform: scale(0.7);
+  }
+}
