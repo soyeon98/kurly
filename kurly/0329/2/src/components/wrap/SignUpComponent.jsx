@@ -535,14 +535,14 @@ export default function SignUpComponent({회원가입,timer,timerCounterFn,mapAd
     const onChangeaddr1 =(e)=>{
         setState({
             ...state,
-            주소1:e.targer.value
+            주소1:e.target.value
         })
     }
     //7-4 주소2 입력상자 이벤트
     const onChangeaddr2 =(e)=>{
         setState({
             ...state,
-            주소2:e.targer.value
+            주소2:e.target.value
         })
     }
     //7-5 주소 재검색
@@ -947,22 +947,163 @@ export default function SignUpComponent({회원가입,timer,timerCounterFn,mapAd
 
         //14. 이용약관동의 : 필수항목 3개 확인 추가 검증 
         // - 가입하기 클릭하면 이용약관 동의 배열값 내용 중 필수 항목을 카운트한다. 변수에 대입
-        const result =state.이용약관동의.map((item)=>item===item.includes('필수')===true?1:0);
-
-      
-        let cnt=0;
-        result.map((item)=>{
-            cnt+=item;
+        let cnt =0;
+        state.이용약관동의.map((item)=>{
+            if(item.indexOf('필수')!==-1){
+                cnt++;
+            }
         })
-
-        if(cnt<3){
-            alert('다시');
+        
+        if(state.아이디===''){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'아이디를 입력해주세요'
+            })
+        }
+        else if(state.isIdError===true){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'아이디를 형식에 맞게 입력해주세요'
+            })
+        }
+        else if(state.isIdOk===false){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'아이디중복확인을 해주세요'
+            })
+        }
+        else if(state.비밀번호===''){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'비밀번호를 입력하세요'
+            })
+        }
+        else if(state.isPwError===true){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'비밀번호를 형식에 맞게 입력하세요'
+            })
+        }
+        else if(state.비밀번호확인===''){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'비밀번호확인을 입력하세요'
+            })
+        }
+        else if(state.isPw2Error===true){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'비밀번호확인을 다시 해주세요'
+            })
+        }
+        else if(state.이름===''){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'이름을 입력하세요'
+            })
+        }
+        else if(state.이메일===''){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'이메일을 입력하세요'
+            })
+        }
+        else if(state.isEmailError===true){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'이메일형식을 확인하세요'
+            })
+        }
+        else if(state.isEmailOk===false){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'이메일 중복확인을 확인하세요'
+            })
+        }
+        else if(state.휴대폰===''){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'휴대폰번호를 입력하세요'
+            })
+        }
+        else if(state.isHp3===true){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'인증번호 확인을 해주세요'
+            })
+        }
+        else if(state.주소1===''){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'주소를 입력하세요'
+            })
+        }
+        else if(state.주소2===''){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'나머지 주소를 입력하세요'
+            })
+        }
+        else if(cnt<3){
+            setState({
+                ...state,
+                isConfirmModal:true,
+                confirmMsg:'필수 항목을 모두 체크해주셔야합니다.'
+            })
         }
         else{
-            alert('맞음');
+            const regExpHp=/^(\d{3})(\d{3,4})(\d{4})$/g;
+            let newFormData = new FormData();
+            newFormData.append('user_id',state.아이디);
+            newFormData.append('user_pw',state.비밀번호);
+            newFormData.append('user_name',state.이름);
+            newFormData.append('user_email',state.이메일);
+            newFormData.append('user_hp',state.휴대폰.replace(regExpHp,'$1-$2-$3'));
+            newFormData.append('user_addr',`${state.주소1} ${state.주소2}`);
+            newFormData.append('user_gender', state.성별);
+            newFormData.append('user_birth', `${state.생년}-${state.생월}-${state.생일}`);
+            newFormData.append('user_add_input', `${state.추가입력사항} ${state.참여이벤트명} ${state.추천인아이디}`);
+            newFormData.append('user_service', state.이용약관동의);
+            newFormData.append('user_gaib_date', `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`);
+
+            axios({
+                url:'http://qkrthdus98.dothome.co.kr/signup_db/form_data_insert.php',
+                method:'POST',
+                data:newFormData
+            })
+            .then((res)=>{
+                if(res.status===200){
+                    setState({
+                        ...state,
+                        isConfirmModal:true,
+                        confirmMsg:'가입되었습니다.'
+                    })
+                }
+
+            })
+            .catch((err)=>{
+                console.log('AXIOS 실패',err);
+            })
         }
 
-        console.log(cnt);
+
+      
+
 
         //15. 1-14 이상없으면 전송 
         
